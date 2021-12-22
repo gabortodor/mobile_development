@@ -17,7 +17,9 @@
             app:popEnterAnim="@anim/slide_in_bottom" />
         <action
             android:id="@+id/action_overview_to_info"
-            app:destination="@id/counterInfoFragment" />
+            app:destination="@id/counterInfoFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:popEnterAnim="@anim/slide_in_bottom" />
     </fragment>
 
     <fragment

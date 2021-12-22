@@ -11,10 +11,10 @@
     <string name="cancel">Cancel</string>
 
     <!-- TextView labels -->
-    <string name="label">Label</string>
+    <string name="label">Label:</string>
     <string name="label_hint">Enter a  catchy name</string>
-    <string name="color">Color</string>
-    <string name="value">Initial value</string>
+    <string name="color">Color:</string>
+    <string name="value">Initial value:</string>
     <string name="goal">Goal value:</string>
     <string name="increase">Increase value:</string>
     <string name="progress">Counter progress:</string>
@@ -32,6 +32,8 @@
     <string name="reset_all">Reset all</string>
     <string name="delete_all">Delete all</string>
     <string name="fact">Fun fact:</string>
+    <string name="advanced_settings">Advanced settings</string>
+    <string name="hide_advanced_settings">Hide advanced settings</string>
 
 
 </resources>

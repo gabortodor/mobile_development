@@ -31,7 +31,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:background="@color/teal_700">
+                    tools:background="@color/navy">
 
                     <EditText
                         android:id="@+id/value_info_editText"
@@ -73,7 +73,7 @@
                     android:layout_height="3dp"
                     android:background="@{counterInfoViewModel.counter.color}"
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-                    tools:background="@color/teal_700"
+                    tools:background="@color/navy"
                     tools:layout_editor_absoluteX="1dp" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -202,7 +202,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/dec_inc_constraint"
-                    tools:background="@color/teal_700" />
+                    tools:background="@color/navy" />
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -213,7 +213,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/divider2"
-                    tools:background="@color/teal_700">
+                    tools:background="@color/navy">
 
                     <LinearLayout
                         android:id="@+id/created_linear"
@@ -358,7 +358,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/inf_constraint"
-                    tools:background="@color/teal_700" />
+                    tools:background="@color/navy" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/progress_constraint"
@@ -379,7 +379,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:textColor="@color/teal_700" />
+                        tools:textColor="@color/navy" />
 
                     <TextView
                         android:id="@+id/min_info_text"
@@ -391,7 +391,7 @@
                         android:textSize="20sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/progress_info_text"
-                        tools:textColor="@color/teal_700" />
+                        tools:textColor="@color/navy" />
 
                     <ProgressBar
                         android:id="@+id/progressBar"
@@ -420,7 +420,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/progress_info_text"
                         tools:text="10"
-                        tools:textColor="@color/teal_700" />
+                        tools:textColor="@color/navy" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -433,7 +433,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/progress_constraint"
-                    tools:background="@color/teal_700" />
+                    tools:background="@color/navy" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/fact_constraint"
@@ -444,7 +444,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider4"
-                    tools:background="@color/teal_700">
+                    tools:background="@color/navy">
 
                     <TextView
                         android:id="@+id/fact_info_text"
@@ -470,10 +470,11 @@
                         android:text="@{counterInfoViewModel.response}"
                         android:textColor="@color/white"
                         android:textSize="20sp"
+                        android:paddingBottom="10dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/fact_info_text"
-                        tools:textColor="@color/teal_700" />
+                        tools:textColor="@color/navy" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <View
@@ -484,7 +485,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/fact_constraint"
-                    tools:background="@color/teal_700" />
+                    tools:background="@color/navy" />
 
 
                 <Button
@@ -522,7 +523,7 @@
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:tint="@color/teal_700" />
+            tools:tint="@color/navy" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/update_done_floating_button"
@@ -538,7 +539,7 @@
             app:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:tint="@color/teal_700" />
+            tools:tint="@color/navy" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/reset_floating_button"

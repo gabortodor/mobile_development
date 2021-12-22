@@ -1,7 +1,5 @@
 package com.example.mobile_development.counteroverview
 
-import android.util.Log
-import android.view.View
 import androidx.lifecycle.*
 import com.example.mobile_development.database.Counter
 import com.example.mobile_development.database.CounterDatabaseDao

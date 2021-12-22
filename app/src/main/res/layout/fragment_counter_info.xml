@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="counterInfoViewModel"
+            type="com.example.mobile_development.counterinfo.CounterInfoViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    modifiedBackgroundColor="@{counterInfoViewModel.counter}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:background="@color/teal_700">
+
+                    <EditText
+                        android:id="@+id/value_info_editText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:enabled="false"
+                        android:hint="@string/value_info"
+                        android:inputType="number"
+                        android:text="@{String.valueOf(counterInfoViewModel.counter.currentValue)}"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="90sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="value" />
+
+                    <EditText
+                        android:id="@+id/name_info_editText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:enabled="false"
+                        android:hint="name"
+                        android:text="@{counterInfoViewModel.counter.counterName}"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="28sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView"
+                        tools:text="name" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@{counterInfoViewModel.counter.color}"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                    tools:background="@color/teal_700"
+                    tools:layout_editor_absoluteX="1dp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/dec_inc_constraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider">
+
+                    <LinearLayout
+                        android:id="@+id/dec_linear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/decrease_info_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/decrease"
+                            android:textColor="@{counterInfoViewModel.counter.color}"
+                            android:textSize="20sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/value_editText" />
+
+                        <EditText
+                            android:id="@+id/decrease_info_editText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:enabled="false"
+                            android:hint="value"
+                            android:inputType="number"
+                            android:text="@{String.valueOf(counterInfoViewModel.counter.decrementValue)}"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            tools:text="50" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/inc_linear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/dec_linear">
+
+                        <TextView
+                            android:id="@+id/increase_info_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:hint="value"
+                            android:text="@string/increase"
+                            android:textColor="@{counterInfoViewModel.counter.color}"
+                            android:textSize="20sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/value_editText" />
+
+                        <EditText
+                            android:id="@+id/increase_info_editText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:enabled="false"
+                            android:inputType="number"
+                            android:text="@{String.valueOf(counterInfoViewModel.counter.incrementValue)}"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            tools:text="50" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/goal_linear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/inc_linear">
+
+                        <TextView
+                            android:id="@+id/goal_info_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:hint="value"
+                            android:text="@string/goal"
+                            android:textColor="@{counterInfoViewModel.counter.color}"
+                            android:textSize="20sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/value_editText" />
+
+                        <EditText
+                            android:id="@+id/goal_info_editText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:enabled="false"
+                            android:inputType="number"
+                            android:text="@{String.valueOf(counterInfoViewModel.counter.goalValue)}"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            tools:text="50" />
+
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@{counterInfoViewModel.counter.color}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dec_inc_constraint"
+                    tools:background="@color/teal_700" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/inf_constraint"
+                    modifiedBackgroundColor="@{counterInfoViewModel.counter}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider2"
+                    tools:background="@color/teal_700">
+
+                    <LinearLayout
+                        android:id="@+id/created_linear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/created_info_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/created"
+                            android:textColor="@{counterInfoViewModel.counter.color}"
+                            android:textSize="20sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/value_editText" />
+
+                        <TextView
+                            android:id="@+id/created_info_value"
+                            createdAtFormatted="@{counterInfoViewModel.counter}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/value_editText" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tapped_linear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/created_linear">
+
+                        <TextView
+                            android:id="@+id/tapped_info_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/tapped"
+                            android:textColor="@{counterInfoViewModel.counter.color}"
+                            android:textSize="20sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/value_editText" />
+
+                        <TextView
+                            android:id="@+id/tapped_info_value"
+                            tappedAtFormatted="@{counterInfoViewModel.counter}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/value_editText" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/total_taps_linear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tapped_linear">
+
+                        <TextView
+                            android:id="@+id/total_taps_info_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/total_taps"
+                            android:textColor="@{counterInfoViewModel.counter.color}"
+                            android:textSize="20sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/value_editText" />
+
+                        <TextView
+                            android:id="@+id/total_taps_info_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:text="@{String.valueOf(counterInfoViewModel.counter.totalTaps)}"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/value_editText" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/goal_reached_linear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/total_taps_linear">
+
+                        <TextView
+                            android:id="@+id/goal_reached_info_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/goal_reached"
+                            android:textColor="@{counterInfoViewModel.counter.color}"
+                            android:textSize="20sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="parent" />
+
+                        <TextView
+                            android:id="@+id/goal_reached_info_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="@{String.valueOf(counterInfoViewModel.counter.goalReached)}"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/value_editText" />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@{counterInfoViewModel.counter.color}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inf_constraint"
+                    tools:background="@color/teal_700" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/progress_constraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider3">
+
+                    <TextView
+                        android:id="@+id/progress_info_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/progress"
+                        android:textColor="@{counterInfoViewModel.counter.color}"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:textColor="@color/teal_700" />
+
+                    <TextView
+                        android:id="@+id/min_info_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="0"
+                        android:textColor="@{counterInfoViewModel.counter.color}"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/progress_info_text"
+                        tools:textColor="@color/teal_700" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:indeterminate="false"
+                        android:max="@{counterInfoViewModel.counter.goalValue}"
+                        android:progress="@{counterInfoViewModel.counter.currentValue}"
+                        android:progressTint="@{counterInfoViewModel.counter.color}"
+                        app:layout_constraintBottom_toBottomOf="@+id/min_info_text"
+                        app:layout_constraintEnd_toStartOf="@+id/max_info_text"
+                        app:layout_constraintStart_toEndOf="@id/min_info_text"
+                        app:layout_constraintTop_toTopOf="@+id/min_info_text" />
+
+                    <TextView
+                        android:id="@+id/max_info_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:text="@{String.valueOf(counterInfoViewModel.counter.goalValue)}"
+                        android:textColor="@{counterInfoViewModel.counter.color}"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/progress_info_text"
+                        tools:text="10"
+                        tools:textColor="@color/teal_700" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/divider4"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@{counterInfoViewModel.counter.color}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/progress_constraint"
+                    tools:background="@color/teal_700" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fact_constraint"
+                    modifiedBackgroundColor="@{counterInfoViewModel.counter}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider4"
+                    tools:background="@color/teal_700">
+
+                    <TextView
+                        android:id="@+id/fact_info_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/fact"
+                        android:textColor="@{counterInfoViewModel.counter.color}"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/fact_info_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@{counterInfoViewModel.response}"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/fact_info_text"
+                        tools:textColor="@color/teal_700" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/divider5"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@{counterInfoViewModel.counter.color}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fact_constraint"
+                    tools:background="@color/teal_700" />
+
+
+                <Button
+                    android:id="@+id/delete_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/round"
+                    android:backgroundTint="@color/crimson"
+                    android:onClick="@{()->counterInfoViewModel.onDelete()}"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="Delete counter"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider5" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/update_floating_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:onClick="@{() -> counterInfoViewModel.onUpdate()}"
+            android:src="@drawable/edit_icon"
+            android:tint="@{counterInfoViewModel.counter.color}"
+            app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:tint="@color/teal_700" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/update_done_floating_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:onClick="@{() -> counterInfoViewModel.onUpdateComplete()}"
+            android:src="@drawable/tick_icon"
+            android:tint="@{counterInfoViewModel.counter.color}"
+            android:visibility="gone"
+            app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:tint="@color/teal_700" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/reset_floating_button"
+            counterBackgroundColor="@{counterInfoViewModel.counter}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:onClick="@{()-> counterInfoViewModel.onReset()}"
+            android:src="@drawable/reset_icon"
+            android:tint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

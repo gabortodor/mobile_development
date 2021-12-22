@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/counter_overview_fragment">
+
+    <fragment
+        android:id="@+id/counter_overview_fragment"
+        android:name="com.example.mobile_development.counteroverview.CounterOverviewFragment"
+        android:label="@string/counter_overview_fragment"
+        tools:layout="@layout/fragment_counter_overview">
+        <action
+            android:id="@+id/action_overview_to_create"
+            app:destination="@id/counter_create_fragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:popEnterAnim="@anim/slide_in_bottom" />
+        <action
+            android:id="@+id/action_overview_to_info"
+            app:destination="@id/counterInfoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/counter_create_fragment"
+        android:name="com.example.mobile_development.countercreate.CounterCreateFragment"
+        android:label="@string/counter_create_fragment"
+        tools:layout="@layout/fragment_counter_create">
+        <action
+            android:id="@+id/action_create_to_overview"
+            app:destination="@id/counter_overview_fragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@+id/counter_overview_fragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/counterInfoFragment"
+        android:name="com.example.mobile_development.counterinfo.CounterInfoFragment"
+        android:label="CounterInfoFragment" >
+        <argument
+            android:name="counterId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_info_to_overview"
+            app:destination="@id/counter_overview_fragment" />
+    </fragment>
+
+</navigation>
